@@ -5,25 +5,25 @@ DROP TABLE IF EXISTS expence_products CASCADE;
 
 CREATE TABLE family_members(
     id SERIAL PRIMARY KEY,
-    member_name VARCHAR(100) NOT NULL,
-    member_surname VARCHAR(100) NOT NULL,
-    member_lastname VARCHAR(100) NOT NULL,
+    member_name VARCHAR(255) NOT NULL,
+  member_surname VARCHAR(255) NOT NULL,
+  member_lastname VARCHAR(255) NOT NULL,
     birth_date DATE NOT NULL
 );
 
 CREATE TABLE family_jobs (
     id SERIAL PRIMARY KEY,
     person INT REFERENCES family_members(id),
-    occupation VARCHAR(100) NOT NULL,
-    organization VARCHAR(100) NOT NULL,
+    position VARCHAR(255) NOT NULL,
+    organization VARCHAR(255) NOT NULL,
     salary INT NOT NULL,
     start_date DATE
 );
 
 CREATE TABLE products (
     id SERIAL PRIMARY KEY,
-    product_name VARCHAR(100) NOT NULL,
-    category VARCHAR(100) NOT NULL,
+    product_name VARCHAR(255) NOT NULL,
+    category VARCHAR(255) NOT NULL,
     unit_price INT NOT NULL
 );
 
@@ -41,7 +41,7 @@ INSERT INTO family_members (id, member_name, member_surname, member_lastname, bi
 (4, 'Иванова', 'Елена', 'Викторовна', '1959-03-10'),
 (5, 'Петров', 'Сергей', 'Александрович', '1982-12-05');
 
-INSERT INTO family_jobs (id, person, occupation, organization, salary, start_date) VALUES
+INSERT INTO family_jobs (id, person, position, organization, salary, start_date) VALUES
 (1, 1, 'Инженер', 'ООО "ТехноСервис"', 85000, '2015-03-01'),
 (2, 2, 'Бухгалтер', 'АО "ФинансГрупп"', 75000, '2012-04-15'),
 (3, 4, 'Репетитор', 'Частная практика', 15000, '2020-01-10'),
